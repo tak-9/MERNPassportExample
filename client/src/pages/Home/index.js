@@ -6,7 +6,7 @@ function Home() {
         <div>
             <h1>Home Page</h1>
             
-            [<Link to={"/login"} > Login </Link> | <Link to={"/about"} > About </Link> | <Link to={"/signup"} > Signup </Link> ] 
+            [ Home | <Link to={"/login"} > Login </Link> | <Link to={"/about"} > About </Link> | <Link to={"/signup"} > Signup </Link> ] 
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc aliquet diam tortor, id
                 consequat mauris ullamcorper eu. Orci varius natoque penatibus et magnis dis

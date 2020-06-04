@@ -51,6 +51,8 @@ function Login() {
             <div>
                 <h1>Login Page</h1>
                 <p/>
+                [<Link to={"/"} > Home </Link> | Login | <Link to={"/signup"} > Signup </Link> | <Link to={"/about"} > About </Link> ]
+                
                 <form>
                     Username
                     <br/>

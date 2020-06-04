@@ -5,7 +5,7 @@ function About() {
     return (
         <div>
             <h1>About Page</h1>
-            [<Link to={"/"} > Home </Link> | <Link to={"/login"} > Login </Link> | <Link to={"/signup"} > Signup </Link> ]
+            [<Link to={"/"} > Home </Link> | <Link to={"/login"} > Login </Link> | <Link to={"/signup"} > Signup </Link> | About ]
 
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc aliquet diam tortor, id

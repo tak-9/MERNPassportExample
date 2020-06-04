@@ -19,7 +19,11 @@ function Signup() {
                 password: password
             }).then((res) => {
                 console.log(res);
-                setMessage("New user "+ username + " created successfully. You can now login.");
+                setMessage(
+                    <>
+                    New user {username} created successfully.<br/> 
+                    You can now login from <Link to={"/login"}>here</Link>.
+                    </>);
             }).catch((error) => {
                 console.log("error", error.response.data.message);
                 setMessage("Error."+ error.response.data.message);
@@ -32,7 +36,7 @@ function Signup() {
     return (
         <div>
             <h1>Signup</h1>
-            [<Link to={"/"} > Home </Link> | <Link to={"/login"} > Login </Link> | <Link to={"/about"} > About </Link> ]
+            [<Link to={"/"} > Home </Link> | <Link to={"/login"} > Login </Link> | Signup | <Link to={"/about"} > About </Link> ]
             <p/>
             <h3>{message}</h3>
             <h3>{}</h3>
