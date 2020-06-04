@@ -1,24 +1,33 @@
 import React, { useContext, useState } from 'react';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { LoginContext } from '../../contexts/LoginContext';
+import { serverUrl } from '../../utils/env';
+import axios from 'axios';
 
 function PrivateContent() {
     let history = useHistory();
     let loginCtx = useContext(LoginContext);
     let { setLogInState, username } = loginCtx;
-
-    const[redirectUrl, setRedirectUrl] = useState('');
+    let [message, setMessage] = useState('');
 
     const logoutHandler = () => {
-        console.log("logoutHandler");
-        setLogInState(false, null);
-        history.push("/");        
+        var url = serverUrl + '/api/logout';
+        axios.get(url)
+        .then((res) => {
+            console.log("logout ok")
+            setLogInState(false, null);
+            history.push("/");
+        }).catch(err => {
+            console.log("Logout error", err);
+            setMessage('Logout error!');
+        })
     } 
 
     return (
         <div>
             <h1>Private Page</h1>
             <h3>This is top secret information for {username}!</h3>
+            <h3>{message}</h3>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc aliquet diam tortor, id
                 consequat mauris ullamcorper eu. Orci varius natoque penatibus et magnis dis
