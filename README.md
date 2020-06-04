@@ -30,8 +30,8 @@ mysql> CREATE DATABASE mern_passport;
 #### Setting Environment for MySQL Database 
 
 `.env` file is for setting environment variables. `.env_sample` is template for `.env` file. 
-This `.env' file is not uploaded to GitHub as it is listed in `.gitignore` file.
-Copy template file `.env_sample` to `.env` file. 
+This `.env` file has not uploaded to GitHub as it is listed in `.gitignore` file.
+Copy template file `.env_sample` to `.env` file and used it in your local environment. 
 
 ```
 $ cp .env_sample .env
@@ -56,5 +56,3 @@ $ npm install
 $ npm start 
 ```
   
-## Author
-Takuji Okubo
