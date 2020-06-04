@@ -42,31 +42,53 @@ module.exports = function (app) {
     });
 
 
-    app.post("/api/signup", function (req, res) {
-
+    app.post("/api/signup", async function (req, res) {
+        console.log("hello from signup " + req.body.username)
         if (!req.body.username || !req.body.password) {
             res.status(400).json({
                 message: 'Please enter all fields.'
             })
+        } 
+
+        var userFound = false;
+        await db.User.findOne({
+            where: {
+                username: req.body.username
+            }
+        }).then(function (dbUser) {
+            // If there's user with the given username
+            if (dbUser) {
+                // return error
+                userFound = true;
+                console.log("dbUser found ",dbUser)
+            } else {
+                userFound = false;
+                console.log("dbUser not found",dbUser)
+            }
+        });
+
+        if (userFound) {
+            console.log("There is already user with same name.")
+            res.status(400).json({message: "There is already user with same name."});
         } else {
-            console.log("hello from signup" + req.body.username)
             db.User.create({
                 username: req.body.username,
                 password: req.body.password
             })
             .then(function (user) {
                 res.send({
+                    message: 'user account created',
                     user: {
                         id: user.id,
                         username: user.username,
-                        message: 'user account created'
                     }
                 });
             })
             .catch(function (err) {
-                res.status(401).json(err);
+                res.status(400).json(err);
             });
         }
+
     })
 
 
