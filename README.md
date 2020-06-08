@@ -49,7 +49,15 @@ DB_DATABASE=mern_passport
 Your password is kept private in your host (not uploaded to GitHub) as `.env` is in `.gitignore`. This is convenient when working in a team too. We don't have conflict in mergining password file.    
 
 
-#### Running Application 
+#### Deploying to heroku
+1. Login to heroku admin console. 
+2. Create a new application, choose Github account and deploy it. 
+3. Go to Overview. Add JawsDBMySQL in Installed-AddOns.
+4. Go to Setting. Open Config Vars. 
+5. Add a new entry. KEY: NODE_ENV, VALUE: production 
+
+
+#### Running Application on localhost
 
 ```
 $ npm install 
